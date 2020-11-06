@@ -1,0 +1,67 @@
+<form #form="ngForm" autocomplete="off" *ngIf = "service.formData">
+    <div class="row">
+        <div class="col-md-6"> 
+
+           <div class="form-group">
+               <label> Appointment No </label>
+               <input name="AppointmentNo" #AppointmentNo="ngModel" [(ngModel)]="service.formData.AppointmentNo" class="form-control">
+           </div> 
+         </div>
+
+        <div class="col-md-6">
+
+            <div class="form-group">
+                <label> Date </label>
+                <input type="date" name="Date" #AppointmentNo="ngModel" [(ngModel)]="service.formData.Date" class="form-control">
+            </div>
+
+        </div>
+
+        <div class=" col-md-12">
+
+            <div class="form-group">
+                <label> Note </label>
+                <textarea type="text" name="" #Note="ngModel" [(ngModel)]="service.formData.Note" class="form-control"> </textarea>
+            </div>  
+
+            <!-- Table for available services -->
+            <table class="table table-borderless">
+                <thead class="thead-light">
+                    <th> Service </th>
+                    <th> Price </th>
+                    <th> Quantity </th>
+                    <th> Total </th>
+                    <th>
+                        <a class="btn btn-sm btn-success text-white" (click)="AddOrEditOrderItem(null,service.formData.AppointmentId)"><i class="fa fa-plus "></i> Add Item</a>
+                    </th>
+                </thead>
+            
+                <tr *ngIf="service.services.length==0">
+                    <td class="font-italic text-center" colspan="">
+                        No service selected for this order.
+                    </td>
+                </tr>
+
+             <tbody>
+                <tr  *ngFor="let item of services.service; let i=index">
+                    <td>{{services.ServiceName}}</td>
+                    <td>{{services.Price}}</td>
+                    <td>{{services.Quantity}}</td>
+                    <td>{{services.Total}}</td>
+                    <td>
+                        
+                            <a class="btn btn-sm btn-info text-white" (click)="AddOrEditOrderItem(i,service.formData.AppointmentId)"><i class="fa fa-pencil "></i> Submit </a>
+                       
+                    </td>
+                </tr>
+            </tbody> 
+         
+            </table>
+        
+           <div class="form-group"> 
+               <button type="submit" class="btn btn-dark"> Submit </button>
+           </div> 
+        </div>
+
+    </div>
+</form>

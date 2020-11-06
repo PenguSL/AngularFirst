@@ -1,0 +1,53 @@
+<h4 class="display-4"> Book service </h4>
+<hr>
+
+<form #form="ngForm" autocomplete="off">
+    <div class="form-group">
+        <label> Service Name </label>
+        <select name="ServiceId" #ServiceId="ngModel" [(ngModel)]="service.formData.ServiceId" class="form-control">
+            <option value="0"> Hair Removal </option>
+            <option value="0"> Waxing </option>
+            <option value="0"> Threading </option>
+            <option value="0"> Tweezing </option>
+            <option value="0"> Manicures and Pedicures </option>
+            <option value="0"> Massage </option>
+            <option value="0"> Facials </option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label> Price </label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">$</div>
+                </div>
+                <input name="Price" #Price="ngModel" [(ngModel)]="formData.Price" class="form-control" readonly>
+            </div>
+           
+        </div>
+
+        <div class="form-group col-md-6">
+            <label> Quantity </label>
+
+            <input name="Quantity" #Quantity="ngModel" [(ngModel)]="formData.Quantity" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label> Total </label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text">$</div>
+            </div>
+            <input name="Total" #Total="ngModel" [(ngModel)]="formData.Total" class="form-control" readonly> 
+        </div>
+        
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-dark"> Submit </button>
+        <button type="submit" class="btn btn-outline-dark ml-1" onclick="closed"> Close </button>
+    </div>
+
+</form>
